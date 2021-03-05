@@ -8,13 +8,12 @@ jobs:
     executor: python/default
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
       - run:
-          command: ./manage.py test
-          name: Test
-
+          command: |
+          pip install -e .
+          pip install '.[test]'
+          pytest
+          name: Install and test Flask blog app
 workflows:
   main:
     jobs:

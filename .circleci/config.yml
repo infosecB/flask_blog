@@ -9,11 +9,12 @@ jobs:
     steps:
       - checkout
       - run:
-          command: |
-          pip install -e .
-          pip install '.[test]'
-          pytest
-          name: Install and test Flask blog app
+          name: Install Flask blog app
+          command: pip install -e . && pip install '.[test]'
+      - run:
+          name: Test Flask blog app
+          command: pytest
+
 workflows:
   main:
     jobs:

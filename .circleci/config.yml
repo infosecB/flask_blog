@@ -16,12 +16,12 @@ jobs:
           command: pytest
       - run:
           name: Deploy to Dockerhub
-          command: |
-          if [ "${CIRCLE_BRANCH}" == "main" ]; then
-           docker login -u ${DOCKER_USER} -p ${DOCKER_PASS};
-           docker build -t ${DOCKER_USER}/${DOCKER_REPONAME}:latest .;
-           docker push ${DOCKER_USER}/${DOCKER_REPONAME}:latest;
-          fi
+          command: | 
+            if [ "${CIRCLE_BRANCH}" == "main" ]; then
+              docker login -u ${DOCKER_USER} -p ${DOCKER_PASS};
+              docker build -t ${DOCKER_USER}/${DOCKER_REPONAME}:latest .;
+              docker push ${DOCKER_USER}/${DOCKER_REPONAME}:latest;
+            fi
 
 workflows:
   main:

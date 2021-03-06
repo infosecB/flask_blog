@@ -8,6 +8,7 @@ jobs:
     executor: python/default
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: Install Flask blog app
           command: pip install -e . && pip install '.[test]'

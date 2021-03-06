@@ -21,7 +21,7 @@ jobs:
            docker login -u ${DOCKER_USER} -p ${DOCKER_PASS};
            docker build -t ${DOCKER_USER}/${DOCKER_REPONAME}:latest .;
            docker push ${DOCKER_USER}/${DOCKER_REPONAME}:latest;
-         fi
+          fi
 
 workflows:
   main:

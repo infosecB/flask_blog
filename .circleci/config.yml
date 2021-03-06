@@ -4,7 +4,7 @@ orbs:
   python: circleci/python@0.2.1
 
 jobs:
-  build-and-test:
+  build-test-and-deploy:
     executor: python/default
     steps:
       - checkout
@@ -14,8 +14,16 @@ jobs:
       - run:
           name: Test Flask blog app
           command: pytest
+      - run:
+          name: Deploy to Dockerhub
+          command: |
+          if [ "${CIRCLE_BRANCH}" == "main" ]; then
+           docker login -u ${DOCKER_USER} -p ${DOCKER_PASS};
+           docker build -t ${DOCKER_USER}/${DOCKER_REPONAME}:latest .;
+           docker push ${DOCKER_USER}/${DOCKER_REPONAME}:latest;
+         fi
 
 workflows:
   main:
     jobs:
-      - build-and-test
+      - build-test-and-deploy

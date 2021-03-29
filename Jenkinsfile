@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'sudo pip install requests'
+        sh 'pwd'
       }
     }
 

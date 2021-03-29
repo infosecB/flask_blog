@@ -5,6 +5,7 @@ pipeline {
       agent {
         docker {
           image 'alpine'
+          args '--user=root --privileged'
         }
 
       }

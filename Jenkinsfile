@@ -9,7 +9,7 @@ pipeline {
 
       }
       steps {
-        sh 'pwd'
+        sh 'apk add python3 py3-pip'
         sh 'ls -la'
         sh 'pip install .'
       }

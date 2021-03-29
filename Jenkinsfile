@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'whoami && hostname'
+        sh 'sudo pip install requests'
       }
     }
 

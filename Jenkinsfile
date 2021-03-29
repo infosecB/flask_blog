@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh 'pwd'
         sh 'ls -la'
-        sh 'pip install . --user'
+        sh 'pip3 install .'
       }
     }
 

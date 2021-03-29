@@ -12,6 +12,7 @@ pipeline {
       steps {
         sh 'apk add python3 py3-pip'
         sh 'pip install -e . && pip install \'.[test]\''
+        sh 'pytest'
       }
     }
 

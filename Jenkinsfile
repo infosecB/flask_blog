@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'python --version'
+        sh 'pip install -e . && pip install \'.[test]\''
       }
     }
 
